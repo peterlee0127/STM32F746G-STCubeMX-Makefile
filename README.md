@@ -1,4 +1,4 @@
-Copy Drivers folder from STM32F7 Cube
+Copy Drivers & Utilities folder from STM32F7 Cube
 
 <a href="http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef7.zip">STM32F7 Cube</a>
 
@@ -7,6 +7,11 @@ Copy Drivers folder from STM32F7 Cube
 --BSP
 --CMSIS
 --STM32F7xx_HAL_Driver
+
+Utilities
+--CPU
+--Fonts
+--Logs
 
 
 <code>
