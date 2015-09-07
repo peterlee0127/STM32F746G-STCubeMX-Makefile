@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Templates/stm32f7xx_it.h 
+  * @file    UART/UART_TwoBoards_ComIT/Inc/stm32f7xx_it.h 
   * @author  MCD Application Team
   * @version V1.0.0
   * @date    25-June-2015
@@ -58,6 +58,8 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void USARTx_IRQHandler(void);
+void EXTI15_10_IRQHandler(void);
 
 #ifdef __cplusplus
 }

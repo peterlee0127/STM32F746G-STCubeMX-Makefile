@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Templates/stm32f7xx_it.c 
+  * @file    UART/UART_TwoBoards_ComIT/Src/stm32f7xx_it.c 
   * @author  MCD Application Team
   * @version V1.0.0
   * @date    25-June-2015
@@ -38,14 +38,14 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f7xx_it.h"
 #include "main.h"
-
+#include "stm32f7xx_it.h"
+   
 /** @addtogroup STM32F7xx_HAL_Examples
   * @{
   */
 
-/** @addtogroup Templates
+/** @addtogroup UART_TwoBoards_ComIT
   * @{
   */
 
@@ -53,6 +53,8 @@
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+/* UART handler declared in "main.c" file */
+extern UART_HandleTypeDef UartHandle;
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
@@ -157,7 +159,6 @@ void SysTick_Handler(void)
 {
   HAL_IncTick();
 }
-  
 
 /******************************************************************************/
 /*                 STM32F7xx Peripherals Interrupt Handlers                   */
@@ -165,6 +166,27 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f7xx.s).                                               */
 /******************************************************************************/
+/**
+  * @brief  This function handles UART interrupt request.  
+  * @param  None
+  * @retval None
+  * @Note   This function is redefined in "main.h" and related to DMA  
+  *         used for USART data transmission     
+  */
+void USARTx_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&UartHandle);
+}
+
+/**
+  * @brief  This function handles external lines 15 to 10 interrupt request.
+  * @param  None
+  * @retval None
+  */
+void EXTI15_10_IRQHandler(void)
+{
+  HAL_GPIO_EXTI_IRQHandler(KEY_BUTTON_PIN);
+}
 
 /**
   * @brief  This function handles PPP interrupt request.
